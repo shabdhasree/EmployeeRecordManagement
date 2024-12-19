@@ -1,0 +1,157 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4; /* Light background for contrast */
+    margin: 0;
+    padding: 0;
+}
+
+/* Container for Content */
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff; /* White background for content cards */
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Title Styling */
+h1 {
+    font-size: 28px;
+    color: #2e7d32; /* Dark green */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Form and Input Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+label {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+
+input[type="text"], select, textarea {
+    padding: 12px;
+    border: 2px solid #4caf50; /* Green border for inputs */
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border 0.3s ease;
+}
+
+input[type="text"]:focus, select:focus, textarea:focus {
+    border-color: #388e3c; /* Darker green on focus */
+}
+
+/* Button Styles */
+button, .btn {
+    padding: 12px 20px;
+    background-color: #4caf50; /* Green background */
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+button:hover, .btn:hover {
+    background-color: #388e3c; /* Darker green on hover */
+    transform: translateY(-2px); /* Lift effect */
+}
+
+/* Table Styles for Employee List */
+#employeeData table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#employeeData table, #employeeData th, #employeeData td {
+    border: 1px solid #ddd;
+}
+
+#employeeData th, #employeeData td {
+    padding: 8px;
+    text-align: left;
+}
+
+#employeeData th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Table Styles for Leave Records */
+#leaveData table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#leaveData table, #leaveData th, #leaveData td {
+    border: 1px solid #ddd;
+}
+
+#leaveData th, #leaveData td {
+    padding: 10px;
+    text-align: left;
+}
+
+#leaveData th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#leaveData tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#leaveData tr:hover {
+    background-color: #ddd;
+}
+
+
+/* Photo Section */
+.photo-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.photo-section div {
+    text-align: center;
+}
+
+.photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #4caf50;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.photo:hover {
+    transform: scale(1.1); /* Zoom effect */
+}
+
+/* Responsive Layout */
+@media screen and (max-width: 768px) {
+    .photo-section {
+        flex-direction: column;
+    }
+}
