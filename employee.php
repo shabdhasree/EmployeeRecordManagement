@@ -7,7 +7,18 @@
     <title>Employee Panel</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body> <div class="navbar">
+        <ul>
+            
+                <li><a href="index.html">Home</a></li>
+                <li><a href="employee.php">User</a></li>
+                <li><a href="training_details.php">Training</a></li>
+                <li><a href="login.php">Admin</a></li>
+            
+            
+        </ul>
+    </div>
+
     <div class="container">
         <h1>Employee Panel</h1>
         
@@ -42,25 +53,67 @@
                 echo "<p>Error: " . $conn->error . "</p>";
             }
         }
+        ?>
 
-        // Fetch leave records from the database
-        $result = $conn->query("SELECT * FROM leaves");
-        
-        // Display leave records in a table
-        echo "<h2>Leave Records</h2>";
-        echo "<div id='leaveData'>
-                <table>
-                    <tr><th>ID</th><th>Employee ID</th><th>Leave Type</th><th>Status</th></tr>";
-        while ($row = $result->fetch_assoc()) {
-            echo "<tr>
-                    <td>{$row['id']}</td>
-                    <td>{$row['employee_id']}</td>
-                    <td>{$row['leave_type']}</td>
-                    <td>{$row['status']}</td>
-                </tr>";
+        <!-- Show Leave Records Button -->
+        <form method="post" class="gap">
+            <button type="submit" name="show_leave_records" class="btn">Show Leave Records</button>
+        </form>
+
+        <?php
+        // Handle showing leave records
+        if (isset($_POST['show_leave_records'])) {
+            // Fetch leave records from the database
+            $result = $conn->query("SELECT * FROM leaves");
+
+            // Display leave records in a table
+            echo "<h2>Leave Records</h2>";
+            echo "<div id='leaveData'>
+                    <table>
+                        <tr><th>ID</th><th>Employee ID</th><th>Leave Type</th><th>Status</th></tr>";
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>
+                        <td>{$row['id']}</td>
+                        <td>{$row['employee_id']}</td>
+                        <td>{$row['leave_type']}</td>
+                        <td>{$row['status']}</td>
+                    </tr>";
+            }
+            echo "</table>
+                  </div>";
         }
-        echo "</table>
-              </div>";
+        ?>
+
+        <!-- Employee Name Search -->
+        <h2>See Details</h2>
+        <form method="post">
+            <input type="text" name="employee_name" placeholder="Enter Employee Name" required>
+            <button type="submit" name="show_details" class="btn">Show Details</button>
+        </form>
+
+        <?php
+        // Handle the search for employee details
+        if (isset($_POST['show_details'])) {
+            $employee_name = $_POST['employee_name'];
+
+            // Fetch employee details based on name
+            $query = "SELECT * FROM employees WHERE name LIKE '%$employee_name%'";
+            $employee_result = $conn->query($query);
+
+            if ($employee_result && $employee_result->num_rows > 0) {
+                // Display the employee details in label and text field format
+                while ($employee = $employee_result->fetch_assoc()) {
+                    echo "<h3>Employee Details</h3>";
+                    echo "<label for='employee_name'>Name:</label><input type='text' value='{$employee['name']}' readonly><br>";
+                    echo "<label for='employee_email'>Email:</label><input type='text' value='{$employee['email']}' readonly><br>";
+                    echo "<label for='employee_phone'>Phone:</label><input type='text' value='{$employee['phone']}' readonly><br>";
+                    echo "<label for='employee_department'>Department:</label><input type='text' value='{$employee['department']}' readonly><br>";
+                    echo "<label for='employee_position'>Position:</label><input type='text' value='{$employee['position']}' readonly><br>";
+                }
+            } else {
+                echo "<p>No employee found with the name '$employee_name'.</p>";
+            }
+        }
         ?>
     </div>
 </body>

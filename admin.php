@@ -1,5 +1,10 @@
 <?php
-include 'db.php'; // Ensure this includes your database connection
+session_start();
+if (!isset($_SESSION['admin_logged_in']) || !$_SESSION['admin_logged_in']) {
+    header("Location: login.php"); // Redirect to login page if not logged in
+    exit;
+}
+include 'db.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +15,16 @@ include 'db.php'; // Ensure this includes your database connection
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="admin.php">Admin</a></li>
+            <li><a href="training_details.php">Training</a></li>
+            <li><a href="performance.php">Performance</a></li>
+
+            <li><a href="logout.php">Logout</a></li>
+        </ul>
+    </div>
     <div class="container">
         <h1>Admin Panel</h1>
         
@@ -98,6 +113,6 @@ include 'db.php'; // Ensure this includes your database connection
             document.getElementById('hideDataButton').style.display = 'none'; // Hide "Hide Data" button
         }
     </script>
-
+    </div>
 </body>
 </html>

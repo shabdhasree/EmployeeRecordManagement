@@ -4,13 +4,14 @@ body {
     background-color: #f4f4f4; /* Light background for contrast */
     margin: 0;
     padding: 0;
+    
 }
 
 /* Container for Content */
 .container {
     max-width: 900px;
     margin: 50px auto;
-    padding: 30px;
+    padding: 50px;
     background-color: #ffffff; /* White background for content cards */
     border-radius: 10px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
@@ -73,6 +74,43 @@ button:hover, .btn:hover {
     transform: translateY(-2px); /* Lift effect */
 }
 
+.login-box {
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.input-box {
+    margin-bottom: 15px;
+}
+.input-box label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.input-box input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.error {
+    color: red;
+    font-size: 0.9em;
+    text-align: center;
+}
+ 
+.gap {
+    margin-top: 20px;
+}
+
 /* Table Styles for Employee List */
 #employeeData table {
     width: 100%;
@@ -93,6 +131,9 @@ button:hover, .btn:hover {
     color: white;
 }
 
+#showDataButton, #hideDataButton {
+    margin-top: 40px; /* Add extra gap specifically for these buttons */
+}
 /* Table Styles for Leave Records */
 #leaveData table {
     width: 100%;
@@ -147,6 +188,81 @@ button:hover, .btn:hover {
 
 .photo:hover {
     transform: scale(1.1); /* Zoom effect */
+}
+
+.navbar {
+    background-color: #4caf50; /* Green background */
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.navbar ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.navbar ul li a:hover {
+    background-color: #388e3c; /* Darker green */
+}
+
+/* Styling the table container */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Ensures borders between cells collapse into a single border */
+    margin-top: 20px;
+    text-align: left; /* Aligns text to the left */
+}
+
+/* Styling the table header */
+table th {
+    background-color: #4CAF50; /* Green background for the header */
+    color: white; /* White text color */
+    padding: 12px; /* Adds padding inside the header cells */
+    border: 1px solid #ddd; /* Adds a light border around the header */
+    font-weight: bold; /* Makes the header text bold */
+}
+
+/* Styling the table data cells */
+table td {
+    padding: 12px; /* Adds padding inside the data cells */
+    border: 1px solid #ddd; /* Adds a light border around the data cells */
+    background-color: #fafafa; /* Light background color for data cells */
+}
+
+/* Alternate row styling */
+table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Lighter background for even rows */
+}
+
+/* Table row hover effect */
+table tr:hover {
+    background-color: #ddd; /* Light gray background on row hover */
+}
+
+/* Optional: Styling for the table headings */
+h2 {
+    color: #333; /* Dark text color for headings */
+    margin-bottom: 10px; /* Adds some space below the heading */
 }
 
 /* Responsive Layout */
